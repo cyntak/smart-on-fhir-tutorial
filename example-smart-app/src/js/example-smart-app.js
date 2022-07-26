@@ -38,11 +38,11 @@
 
           for (let index = 0; index < allergy.length; index++) {
             const element = allergy[index];
+            if (element.type !== "allergy") continue;
             $("#allergies").append(
               $("<tr />", {
                 append: [
                   $("<td />", { html: element.code.text }),
-                  $("<td />", { html: element.type }),
                   $("<td />", {
                     html: element.category ? element.category.join(", ") : "",
                   }),
