@@ -36,9 +36,9 @@
         $.when(pt, obv, ai).done(function (patient, obv, allergy) {
           console.log(allergy);
 
-          for (let index = 0; index < allergy.length; index++) {
+          allergy.forEach((element) => {
             const element = allergy[index];
-            if (element.type !== "allergy") continue;
+            if (element.type !== "allergy") return;
 
             $("#allergies").append(
               $("<tr />", {
@@ -50,7 +50,7 @@
                 ],
               })
             );
-          }
+          });
 
           var byCodes = smart.byCodes(obv, "code");
           var gender = patient.gender;
