@@ -39,6 +39,7 @@
           for (let index = 0; index < allergy.length; index++) {
             const element = allergy[index];
             if (element.type !== "allergy") continue;
+
             $("#allergies").append(
               $("<tr />", {
                 append: [
