@@ -43,7 +43,9 @@
                 append: [
                   $("<td />", { html: element.code.text }),
                   $("<td />", { html: element.type }),
-                  $("<td />", { html: element.category.join(", ") }),
+                  $("<td />", {
+                    html: element.category ? element.category.join(", ") : "",
+                  }),
                 ],
               })
             );
