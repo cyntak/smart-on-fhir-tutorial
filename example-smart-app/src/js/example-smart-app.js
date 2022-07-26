@@ -72,6 +72,11 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
+          for (let index = 0; index < allergy.length; index++) {
+            const element = allergy[index];
+            $("#allergy").append($(element.text.div));
+          }
+
           ret.resolve(p);
         });
       } else {
@@ -95,6 +100,7 @@
       ldl: { value: "" },
       hdl: { value: "" },
       temp: { value: "" },
+      allergies: [],
     };
   }
 
