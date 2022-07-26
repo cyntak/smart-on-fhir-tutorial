@@ -34,8 +34,6 @@
         $.when(pt, obv, ai).fail(onError);
 
         $.when(pt, obv, ai).done(function (patient, obv, allergy) {
-          console.log(allergy);
-
           allergy.forEach((element) => {
             if (element.type !== "allergy") return;
 
