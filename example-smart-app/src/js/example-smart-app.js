@@ -35,6 +35,20 @@
 
         $.when(pt, obv, ai).done(function (patient, obv, allergy) {
           console.log(allergy);
+
+          for (let index = 0; index < allergy.length; index++) {
+            const element = allergy[index];
+            $("#allergies").append(
+              $("<tr />", {
+                append: [
+                  $("<td />", { html: element.code.text }),
+                  $("<td />", { html: element.type }),
+                  $("<td />", { html: element.category.join(", ") }),
+                ],
+              })
+            );
+          }
+
           var byCodes = smart.byCodes(obv, "code");
           var gender = patient.gender;
 
@@ -71,11 +85,6 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-
-          for (let index = 0; index < allergy.length; index++) {
-            const element = allergy[index];
-            $("#allergy").append($(element.text.div));
-          }
 
           ret.resolve(p);
         });
