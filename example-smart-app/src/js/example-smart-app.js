@@ -37,7 +37,6 @@
           console.log(allergy);
 
           allergy.forEach((element) => {
-            const element = allergy[index];
             if (element.type !== "allergy") return;
 
             $("#allergies").append(
