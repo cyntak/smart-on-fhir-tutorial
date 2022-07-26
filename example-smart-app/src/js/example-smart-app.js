@@ -39,6 +39,12 @@
           allergy.forEach((element) => {
             if (element.type !== "allergy") return;
 
+            var reactions = element.reaction
+              ? element.reaction
+                  .map((item) => item.manifestation[0].text)
+                  .join(", ")
+              : "";
+
             $("#allergies").append(
               $("<tr />", {
                 append: [
@@ -46,6 +52,7 @@
                   $("<td />", {
                     html: element.category ? element.category.join(", ") : "",
                   }),
+                  $("<td />", { html: reactions }),
                 ],
               })
             );
