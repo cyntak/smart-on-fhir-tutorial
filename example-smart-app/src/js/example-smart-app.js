@@ -27,9 +27,14 @@
           },
         });
 
-        $.when(pt, obv).fail(onError);
+        var ai = smart.patient.api.fetchAll({
+          type: "AllergyIntolerance",
+        });
 
-        $.when(pt, obv).done(function (patient, obv) {
+        $.when(pt, obv, ai).fail(onError);
+
+        $.when(pt, obv, ai).done(function (patient, obv) {
+          console.log(ai);
           var byCodes = smart.byCodes(obv, "code");
           var gender = patient.gender;
 
